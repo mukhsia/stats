@@ -10,6 +10,7 @@ use std::process::exit;
 
 /// Report proper usage and exit.
 fn usage() -> ! {
+    // eprintln: Prints to standard error
     eprintln!("stats: usage: stats [--mean|--stddev|--median|--l2]");
     exit(1);
 }

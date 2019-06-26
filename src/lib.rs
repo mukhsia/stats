@@ -30,7 +30,8 @@ pub fn mean(nums: &[f64]) -> Option<f64> {
 // Example test
 #[test]
 fn test_mean_singleton() {
-    assert_eq!(Some(01.0), mean(&[-1.0,1.0]));
+    // Unwrap panics if a None value is returned
+    assert_eq!(-1.0, mean(&[-1.0,1.0]).unwrap());
 }
 
 /// Population standard deviation of input values. The
@@ -70,6 +71,9 @@ pub fn median(nums: &[f64]) -> Option<f64> {
     // https://users.rust-lang.org/t/how-to-sort-a-vec-of-floats/2838/2
     nums.sort_by(|a, b| a.partial_cmp(b).unwrap());
 
+    // Case |nums| = 0: return undefined
+    // Case Odd |nums|: Get mean of middle elements
+    // Case Even |nums|: Get middle element
     unimplemented!("no median yet")
 }
 
