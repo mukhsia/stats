@@ -27,6 +27,12 @@ pub fn mean(nums: &[f64]) -> Option<f64> {
     unimplemented!("no mean yet")
 }
 
+// Example test
+#[test]
+fn test_mean_singleton() {
+    assert_eq!(Some(01.0), mean(&[-1.0,1.0]));
+}
+
 /// Population standard deviation of input values. The
 /// standard deviation of an empty list is undefined.
 ///
