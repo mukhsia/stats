@@ -135,5 +135,16 @@ fn test_median_added() {
 /// assert_eq!(Some(5.0), l2(&[-3.0, 4.0]));
 /// ```
 pub fn l2(nums: &[f64]) -> Option<f64> {
-    unimplemented!("no l2 yet")
+    if nums.len() == 0 {
+        Some(0.0)
+    }
+    else
+    {
+        // https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm
+        let mut sum: f64 = 0.0;
+        for num in nums {
+            sum += num.powi(2);
+        };
+        Some(sum.sqrt())
+    }
 }
