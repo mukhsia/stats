@@ -134,6 +134,10 @@ fn test_median_added() {
 /// # use stats::*;
 /// assert_eq!(Some(5.0), l2(&[-3.0, 4.0]));
 /// ```
+/// ```
+/// # use stats::*;
+/// assert_eq!(Some(37.0), l2(&[12.0, -35.0]));
+/// ```
 pub fn l2(nums: &[f64]) -> Option<f64> {
     if nums.len() == 0 {
         Some(0.0)
