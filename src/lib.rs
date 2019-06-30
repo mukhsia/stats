@@ -72,7 +72,39 @@ fn test_mean_added() {
 /// assert_eq!(Some(0.0), stddev(&[1.0, 1.0]));
 /// ```
 pub fn stddev(nums: &[f64]) -> Option<f64> {
-    unimplemented!("no stddev yet")
+    // Empty list, stddev is None
+    if nums.len() == 0 {
+        None
+    }
+    else
+    {
+        // Non empty list, Compute calculation similar to https://en.wikipedia.org/wiki/Standard_deviation#Population_standard_deviation_of_grades_of_eight_students
+        let mean_nums = mean(nums).unwrap();
+        let mut sum: f64 = 0.0;
+        for num in nums {
+            sum += (num-mean_nums).powi(2);
+        };
+        sum = sum / nums.len() as f64;
+        Some(sum.sqrt())
+    }
+}
+
+// Example test 1
+#[test]
+fn test_stddev_example1() {
+    assert_eq!(None, stddev(&[]));
+}
+
+// Example test 2
+#[test]
+fn test_stddev_example2() {
+    assert_eq!(Some(0.0), stddev(&[1.0, 1.0]));
+}
+
+// Added test
+#[test]
+fn test_stddev_added() {
+    assert_eq!(Some(1.5), stddev(&[3.5,3.5,3.5,6.5,6.5,6.5]));
 }
 
 /// Median value of input values, taking the value closer
