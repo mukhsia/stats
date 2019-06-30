@@ -67,6 +67,7 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
     else
     {
         // Non empty list, Compute calculation similar to https://en.wikipedia.org/wiki/Standard_deviation#Population_standard_deviation_of_grades_of_eight_students
+        // Reference for Rust f64 https://doc.rust-lang.org/std/primitive.f64.html
         let mean_nums = mean(nums).unwrap();
         let mut sum: f64 = 0.0;
         for num in nums {
