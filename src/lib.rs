@@ -122,15 +122,39 @@ fn test_stddev_added() {
 /// assert_eq!(Some(0.0), median(&[0.0, 0.5, -1.0, 1.0]));
 /// ```
 pub fn median(nums: &[f64]) -> Option<f64> {
-    // Make a sorted copy of the input floats.
-    let mut nums = nums.to_owned();
-    // https://users.rust-lang.org/t/how-to-sort-a-vec-of-floats/2838/2
-    nums.sort_by(|a, b| a.partial_cmp(b).unwrap());
-
     // Case |nums| = 0: return undefined
-    // Case Odd |nums|: Get mean of middle elements
-    // Case Even |nums|: Get middle element
-    unimplemented!("no median yet")
+    if nums.len() == 0 {
+        None
+    }
+    else
+    {
+        // Make a sorted copy of the input floats.
+        let mut nums = nums.to_owned();
+        // https://users.rust-lang.org/t/how-to-sort-a-vec-of-floats/2838/2
+        nums.sort_by(|a, b| a.partial_cmp(b).unwrap());
+
+        let mid = ((nums.len()/2) as f64).floor();
+        Some(nums[mid as usize - 1])
+    }
+    
+}
+
+// Example test 1
+#[test]
+fn test_median_example1() {
+    assert_eq!(None, median(&[]));
+}
+
+// Example test 2
+#[test]
+fn test_median_example2() {
+    assert_eq!(Some(0.0), median(&[0.0, 0.5, -1.0, 1.0]));
+}
+
+// Added test
+#[test]
+fn test_median_added() {
+    assert_eq!(Some(-1.3), median(&[-1.7,4.6,0.0,-1.3,9.5,-4.5]));
 }
 
 /// L2 norm (Euclidean norm) of input values. The L2
