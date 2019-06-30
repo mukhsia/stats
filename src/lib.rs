@@ -1,4 +1,4 @@
-// Copyright © 2019 Bart Massey
+// Copyright © 2019 Andre Mukhsia
 // [This program is licensed under the "MIT License"]
 // Please see the file LICENSE in the source
 // distribution of this software for license terms.
@@ -24,14 +24,38 @@ pub type StatFn = fn(&[f64]) -> Option<f64>;
 /// assert_eq!(Some(0.0), mean(&[-1.0, 1.0]));
 /// ```
 pub fn mean(nums: &[f64]) -> Option<f64> {
-    unimplemented!("no mean yet")
+    // Empty list, mean is 0.0
+    if nums.len() == 0 {
+        Some(0.0_f64)
+    }
+    else
+    {
+        // Non empty list, get sum of elements and divide by length of array
+        let mut sum: f64 = 0.0;
+        for num in nums {
+            sum += num;
+        };
+        sum = sum / nums.len() as f64;
+        Some(sum)
+    }
 }
 
-// Example test
+// Example test 1
 #[test]
-fn test_mean_singleton() {
-    // Unwrap panics if a None value is returned
-    assert_eq!(-1.0, mean(&[-1.0,1.0]).unwrap());
+fn test_mean_example1() {
+    assert_eq!(0.0, mean(&[]).unwrap());
+}
+
+// Example test 2
+#[test]
+fn test_mean_example2() {
+    assert_eq!(0.0, mean(&[-1.0,1.0]).unwrap());
+}
+
+// Added Test
+#[test]
+fn test_mean_added() {
+    assert_eq!(1.7, mean(&[-6.0,14.5,2.2,-8.4,6.2]).unwrap())
 }
 
 /// Population standard deviation of input values. The
