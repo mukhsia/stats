@@ -69,7 +69,7 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
         for num in nums {
             sum += (num - mean_nums).powi(2);
         }
-        sum = sum / nums.len() as f64;
+        sum /= nums.len() as f64;
         Some(sum.sqrt())
     }
 }
