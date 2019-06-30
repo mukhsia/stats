@@ -40,18 +40,6 @@ pub fn mean(nums: &[f64]) -> Option<f64> {
     }
 }
 
-// Example test 1
-#[test]
-fn test_mean_example1() {
-    assert_eq!(0.0, mean(&[]).unwrap());
-}
-
-// Example test 2
-#[test]
-fn test_mean_example2() {
-    assert_eq!(0.0, mean(&[-1.0,1.0]).unwrap());
-}
-
 // Added Test
 #[test]
 fn test_mean_added() {
@@ -87,18 +75,6 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
         sum = sum / nums.len() as f64;
         Some(sum.sqrt())
     }
-}
-
-// Example test 1
-#[test]
-fn test_stddev_example1() {
-    assert_eq!(None, stddev(&[]));
-}
-
-// Example test 2
-#[test]
-fn test_stddev_example2() {
-    assert_eq!(Some(0.0), stddev(&[1.0, 1.0]));
 }
 
 // Added test
@@ -137,18 +113,6 @@ pub fn median(nums: &[f64]) -> Option<f64> {
         Some(nums[mid as usize - 1])
     }
     
-}
-
-// Example test 1
-#[test]
-fn test_median_example1() {
-    assert_eq!(None, median(&[]));
-}
-
-// Example test 2
-#[test]
-fn test_median_example2() {
-    assert_eq!(Some(0.0), median(&[0.0, 0.5, -1.0, 1.0]));
 }
 
 // Added test
