@@ -25,7 +25,7 @@ pub type StatFn = fn(&[f64]) -> Option<f64>;
 /// ```
 pub fn mean(nums: &[f64]) -> Option<f64> {
     // Empty list, mean is 0.0
-    if nums.len() == 0 {
+    if nums.is_empty() {
         Some(0.0_f64)
     } else {
         // Non empty list, get sum of elements and divide by length of array
@@ -59,7 +59,7 @@ fn test_mean_added() {
 /// ```
 pub fn stddev(nums: &[f64]) -> Option<f64> {
     // Empty list, stddev is None
-    if nums.len() == 0 {
+    if nums.is_empty() {
         None
     } else {
         // Non empty list, Compute calculation similar to https://en.wikipedia.org/wiki/Standard_deviation#Population_standard_deviation_of_grades_of_eight_students
@@ -96,7 +96,7 @@ fn test_stddev_added() {
 /// ```
 pub fn median(nums: &[f64]) -> Option<f64> {
     // Case |nums| = 0: return undefined
-    if nums.len() == 0 {
+    if nums.is_empty() {
         None
     } else {
         // Make a sorted copy of the input floats.
@@ -133,7 +133,7 @@ fn test_median_added() {
 /// assert_eq!(Some(37.0), l2(&[12.0, -35.0]));
 /// ```
 pub fn l2(nums: &[f64]) -> Option<f64> {
-    if nums.len() == 0 {
+    if nums.is_empty() {
         Some(0.0)
     } else {
         // https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm
